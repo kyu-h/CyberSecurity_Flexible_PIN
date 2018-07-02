@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/colorPrimary"
+    android:background="#000000"
     android:padding="10dp"
     android:gravity="center"
     android:orientation="vertical"
     android:id="@+id/backpad"
+    android:backgroundTint="#000000"
     android:onClick="make">
 
     <TextView
@@ -17,7 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="50dp" />
+        android:background="#000000"
+        android:textSize="50dp"/>
 
     <LinearLayout
         android:id="@+id/pad"

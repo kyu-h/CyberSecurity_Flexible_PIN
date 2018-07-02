@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     String[][] btn_number = { {"1", "2", "3"}, {"4", "5", "6"}, {"7", "8", "9"}, {"*","0", "#"} };
     int[] num_low = {0, 1, 2, 3};
     int[] num_col = {0, 1, 2};
-    int flag = 0;
+    int push_num = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
             for(int j=0; j<3; j++)
             buttons[i][j] = findViewById(btnId[i][j]);
         }
+
+        textbox.bringToFront();
     }
 
     public void set_number(){
@@ -228,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
                 pressedButton = findViewById(R.id.button2A);
                 pressedButton = findViewById(R.id.button3A);
                 pressedButton = findViewById(R.id.button4A);
+                push_num = 1;
                 break;
             case R.id.buttonB:
             case R.id.button1B:
@@ -243,7 +246,8 @@ public class MainActivity extends AppCompatActivity {
             default:
                 break;
         }
-        if(pressedButton.getText().toString() == "*"){
+
+        if(push_num == 1){
             textbox.setText("");
             pad.setVisibility(View.INVISIBLE);
             pad01.setVisibility(View.INVISIBLE);
@@ -251,10 +255,9 @@ public class MainActivity extends AppCompatActivity {
             pad03.setVisibility(View.INVISIBLE);
             pad04.setVisibility(View.INVISIBLE);
 
-        }
-        else{
+            push_num = 0;
+        }else {
             textbox.append(pressedButton.getText());
-            Log.i("test", pressedButton.getText().toString());
         }
     }
 }
